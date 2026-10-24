@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día de Muertos y Halloween</title>
+
+    <style>
+
+        body {
+            background-color: #1b1026;
+            font-family: Arial;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            background-color: #351747;
+            color: #ff9d00;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            color: #fff0dc;
+            font-size: 18px;
+        }
+
+        h2 {
+            color: #ffb52e;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #ffbd59;
+            font-size: 22px;
+        }
+
+        .introduccion {
+            text-align: center;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        .introduccion p {
+            font-size: 17px;
+        }
+
+        .celebraciones {
+            background-color: #291a38;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 15px;
+        }
+
+        .tarjetas {
+            background-color: #3b284b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .tarjetas p {
+            line-height: 1.7;
+        }
+
+        .halloween {
+            border: 2px solid #ff8500;
+        }
+
+        .muertos {
+            border: 2px solid #d65a27;
+        }
+
+        .imagen {
+            background-color: #24172e;
+            color: #ffcf91;
+            text-align: center;
+            padding: 45px 15px;
+            margin: 20px;
+            border: 2px dashed #ff9d00;
+            border-radius: 12px;
+        }
+
+        .menu {
+            background-color: #f8e8d0;
+            color: #321c38;
+            padding: 30px;
+            margin: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .menu h2 {
+            color: #7c2868;
+        }
+
+        .menu p {
+            line-height: 1.7;
+        }
+
+        .botones {
+            margin: 25px 0;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: #24132f;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin: 8px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .boton:hover {
+            background-color: #e8b5ff;
+            color: #351747;
+        }
+
+        .boton-morado {
+            background-color: #6f3285;
+            color: white;
+        }
+
+        .boton-morado:hover {
+            background-color: #a653b5;
+            color: white;
+        }
+
+        /* SECCIONES NUEVAS */
+
+        .nuevas-secciones {
+            background-color: #291a38;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 15px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #ffb52e;
+            margin-bottom: 30px;
+        }
+
+        .noticia {
+            background-color: #3b284b;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border: 2px solid #ff8500;
+            line-height: 1.7;
+            overflow: hidden;
+        }
+
+        .noticia img {
+            width: 100%;
+            max-width: 280px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            float: left;
+            margin: 0 20px 12px 0;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: #24132f;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .fecha {
+            color: #ffbd59;
+            font-weight: bold;
+        }
+
+        .evento {
+            background-color: #3b284b;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            border: 2px solid #d65a27;
+            line-height: 1.7;
+        }
+
+        .evento-imagen {
+            background-color: #24172e;
+            padding: 30px 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 55px;
+        }
+
+        .datos-evento {
+            background-color: #291a38;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .datos-evento p {
+            margin: 10px 0;
+        }
+
+        .encuesta {
+            background-color: #351747;
+            padding: 30px 20px;
+            margin: 25px 0;
+            border-radius: 15px;
+            border: 2px solid #a653b5;
+            text-align: center;
+        }
+
+        .encuesta > p {
+            color: #fff0dc;
+            line-height: 1.7;
+        }
+
+        .opciones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .opcion {
+            background-color: #3b284b;
+            color: white;
+            border: 2px solid #ff8c00;
+            border-radius: 15px;
+            padding: 20px;
+            width: 220px;
+            max-width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .opcion:hover {
+            background-color: #6f3285;
+            transform: translateY(-4px);
+        }
+
+        .opcion img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .opcion.seleccionada {
+            background-color: #ff8c00;
+            color: #24132f;
+            border-color: white;
+        }
+
+        .votar {
+            background-color: #ff8c00;
+            color: #24132f;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .votar:hover {
+            background-color: #e8b5ff;
+        }
+
+        .mensaje-voto {
+            margin-top: 20px;
+            color: #ffbd59;
+            font-weight: bold;
+        }
+
+        .nota {
+            color: #d8c6e3;
+            font-size: 13px;
+        }
+
+        footer {
+            background-color: #100a17;
+            color: #e8b5ff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            .noticia img {
+                float: none;
+                max-width: 100%;
+                height: auto;
+                margin: 0 0 15px 0;
+            }
+
+            .opcion {
+                width: 100%;
+            }
+        }
+.grupo-pregunta {
+    background-color: #3b284b;
+    border: 1px solid #a653b5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.grupo-pregunta h3 {
+    margin-top: 0;
+    color: #ffbd59;
+}
+
+.respuesta-pregunta {
+    display: block;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.respuesta-pregunta:hover {
+    background-color: #6f3285;
+}
+
+.respuesta-pregunta input {
+    margin-right: 8px;
+    accent-color: #ff8c00;
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🎃 Halloween y Día de Muertos 🌼</h1>
+
+        <p>
+            Dos celebraciones, muchas tradiciones y un mundo de colores
+        </p>
+
+        <p>
+            Descubre sus historias, costumbres, ofrendas y vestimentas.
+        </p>
+
+    </header>
+
+
+    <div class="introduccion">
+
+        <h2>¡Bienvenidos!</h2>
+
+        <p>
+            En esta página conocerás dos celebraciones muy especiales:
+            Halloween y el Día de Muertos. Aunque ambas se relacionan
+            con las calaveras y el recuerdo de los difuntos, cada una
+            tiene su propia historia, significado y tradiciones.
+        </p>
+
+        <p>
+            Explora las diferentes secciones y descubre todo lo que
+            hace únicas a estas celebraciones.
+        </p>
+
+    </div>
+
+
+    <div class="celebraciones">
+
+        <div class="tarjetas halloween">
+
+            <h2>🎃 Halloween</h2>
+
+            <p>
+                Una celebración llena de misterio, disfraces, dulces
+                y personajes de terror. Se celebra el 31 de octubre
+                y destaca por sus decoraciones creativas y divertidas.
+            </p>
+
+            <img src="aimepsaw.jpg"
+                 alt="Decoración de Halloween"
+                 style="max-width: 100%; height: auto;">
+
+        </div>
+
+
+        <div class="tarjetas muertos">
+
+            <h2>💀 Día de Muertos 💀</h2>
+
+            <p>
+                Es una tradición mexicana dedicada a recordar
+                y honrar a los seres queridos que han fallecido.
+                Las flores de cempasúchil, las calaveras decoradas,
+                las fotografías y las ofrendas forman parte de
+                esta celebración.
+            </p>
+
+            <img src="aimetrina.jpg"
+                 alt="Decoración del Día de Muertos"
+                 style="max-width: 100%; height: auto;">
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTICIA -->
+
+    <div class="nuevas-secciones">
+
+        <h2 class="subtitulo">📰 Noticias y cultura</h2>
+
+        <div class="noticia">
+
+            <span class="etiqueta">TRADICIONES MEXICANAS</span>
+
+            <h3>El Día de Muertos: una tradición que sigue viva</h3>
+
+            <img src="aimetrina.jpg"
+                 alt="Tradiciones del Día de Muertos">
+
+            <p>
+                El Día de Muertos es una de las tradiciones más
+                representativas de México. Cada año, familias de
+                diferentes regiones preparan altares con fotografías,
+                veladoras, flores de cempasúchil y alimentos para
+                recordar a sus seres queridos.
+            </p>
+
+            <p>
+                Las ofrendas, las calaveritas y las actividades
+                culturales permiten compartir las costumbres
+                mexicanas con nuevas generaciones. Los elementos
+                de cada altar tienen un significado especial y
+                reflejan el cariño y la memoria de quienes ya no están.
+            </p>
+
+            <p class="fecha">
+                Fechas de celebración: 1 y 2 de noviembre.
+            </p>
+
+            <p class="nota">
+                Nota cultural elaborada para este proyecto escolar.
+                No corresponde a una noticia de última hora.
+            </p>
+
+        </div>
+
+
+        <!-- EVENTO -->
+
+        <div class="evento">
+
+            <div class="evento-imagen">
+                🎃 🕯️ 🌼
+            </div>
+
+            <span class="etiqueta">EVENTO ESCOLAR</span>
+
+            <h3>Festival de otoño: Halloween y Día de Muertos</h3>
+
+            <p>
+                ¡Prepárate para celebrar dos tradiciones llenas
+                de creatividad! Imagina un festival con disfraces,
+                decoración de calabazas, exposición de ofrendas
+                y elaboración de calaveritas.
+            </p>
+
+            <p>
+                Una actividad para conocer las diferencias entre
+                ambas celebraciones y disfrutar de sus colores,
+                historias y costumbres.
+            </p>
+
+            <div class="datos-evento">
+
+                <p>📅 <strong>Fecha:</strong> 31 de octubre y 1 de noviembre.</p>
+
+                <p>🕓 <strong>Horario:</strong> 4:00 p. m. a 8:00 p. m.</p>
+
+                <p>📍 <strong>Lugar:</strong> Patio o espacio cultural de la escuela.</p>
+
+                <p>🎭 <strong>Actividades:</strong> Disfraces, ofrendas y decoración.</p>
+
+            </div>
+
+            <p class="nota">
+                Este evento es una propuesta para el proyecto escolar,
+                no un evento confirmado.
+            </p>
+
+        </div>
+
+
+       
+
+<!-- ENCUESTA DE 10 PREGUNTAS -->
+
+<div class="encuesta">
+
+    <h2>✨ ¡Queremos conocer tu opinión! ✨</h2>
+
+    <p>Responde estas 10 preguntas sobre Halloween y el Día de Muertos.</p>
+    <p>Selecciona una respuesta en cada pregunta y al final envía tu encuesta.</p>
+
+    <form id="formularioVoto"
+          action="https://script.google.com/macros/s/AKfycbzn3BK2cIwuyjGEavc3IeSfhkkbsRuiy9BfIKNGs5bAAtifio9lbx0k55S4l2iSE9GT/exec"
+          method="POST"
+          target="_blank">
+
+        <input type="hidden" name="pagina"
+               value="Página principal: Día de Muertos y Halloween">
+
+        <!-- PREGUNTA 1 -->
+        <div class="grupo-pregunta">
+            <h3>1. ¿Qué celebración te gusta más?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q1" value="Halloween" required>
+                Halloween
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q1" value="Día de Muertos">
+                Día de Muertos
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q1" value="Ambas">
+                Ambas por igual
+            </label>
+        </div>
+
+        <!-- PREGUNTA 2 -->
+        <div class="grupo-pregunta">
+            <h3>2. ¿Qué actividad prefieres hacer en Halloween?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q2" value="Disfrazarme" required>
+                Disfrazarme
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q2" value="Pedir dulces">
+                Pedir dulces
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q2" value="Ver películas de terror">
+                Ver películas de terror
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q2" value="Decorar">
+                Decorar mi casa
+            </label>
+        </div>
+
+        <!-- PREGUNTA 3 -->
+        <div class="grupo-pregunta">
+            <h3>3. ¿Qué elemento del Día de Muertos te parece más importante?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q3" value="La ofrenda" required>
+                La ofrenda
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q3" value="Las flores de cempasúchil">
+                Las flores de cempasúchil
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q3" value="Las fotografías">
+                Las fotografías de seres queridos
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q3" value="Las calaveritas">
+                Las calaveritas
+            </label>
+        </div>
+
+        <!-- PREGUNTA 4 -->
+        <div class="grupo-pregunta">
+            <h3>4. ¿Has participado en una celebración de Halloween?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q4" value="Sí" required>
+                Sí
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q4" value="No">
+                No
+            </label>
+        </div>
+
+        <!-- PREGUNTA 5 -->
+        <div class="grupo-pregunta">
+            <h3>5. ¿En tu casa acostumbran poner una ofrenda de Día de Muertos?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q5" value="Sí, todos los años" required>
+                Sí, todos los años
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q5" value="Algunos años">
+                Algunos años
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q5" value="No">
+                No
+            </label>
+        </div>
+
+        <!-- PREGUNTA 6 -->
+        <div class="grupo-pregunta">
+            <h3>6. ¿Qué tipo de disfraz elegirías para Halloween?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q6" value="Monstruo o personaje de terror" required>
+                Monstruo o personaje de terror
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q6" value="Personaje de película o serie">
+                Personaje de película o serie
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q6" value="Disfraz creativo o divertido">
+                Disfraz creativo o divertido
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q6" value="No me disfrazaría">
+                No me disfrazaría
+            </label>
+        </div>
+
+        <!-- PREGUNTA 7 -->
+        <div class="grupo-pregunta">
+            <h3>7. ¿Qué comida relacionas más con el Día de Muertos?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q7" value="Pan de muerto" required>
+                Pan de muerto
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q7" value="Tamales">
+                Tamales
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q7" value="Calaveritas de azúcar">
+                Calaveritas de azúcar
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q7" value="Otra comida">
+                Otra comida
+            </label>
+        </div>
+
+        <!-- PREGUNTA 8 -->
+        <div class="grupo-pregunta">
+            <h3>8. ¿Qué ambiente prefieres?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q8" value="Terrorífico y misterioso" required>
+                Terrorífico y misterioso
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q8" value="Colorido y tradicional">
+                Colorido y tradicional
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q8" value="Ambos">
+                Ambos
+            </label>
+        </div>
+
+        <!-- PREGUNTA 9 -->
+        <div class="grupo-pregunta">
+            <h3>9. ¿Consideras importante conservar las tradiciones mexicanas?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q9" value="Sí, mucho" required>
+                Sí, mucho
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q9" value="Algo importante">
+                Algo importante
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q9" value="No estoy seguro">
+                No estoy seguro
+            </label>
+        </div>
+
+        <!-- PREGUNTA 10 -->
+        <div class="grupo-pregunta">
+            <h3>10. ¿Te gustaría asistir a un festival que combine ambas celebraciones?</h3>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q10" value="Sí" required>
+                Sí
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q10" value="No">
+                No
+            </label>
+
+            <label class="respuesta-pregunta">
+                <input type="radio" name="q10" value="Tal vez">
+                Tal vez
+            </label>
+        </div>
+
+        <button type="submit" class="votar">
+            ¡Enviar mis 10 respuestas!
+        </button>
+
+        <p class="mensaje-voto">
+            Revisa tus respuestas antes de enviarlas.
+        </p>
+
+    </form>
+
+    <p class="nota">
+        ¡Gracias por participar y compartir tu opinión!
+    </p>
+
+</div>
+
+
+
+    <!-- BOTONES DE NAVEGACIÓN AL FINAL -->
+
+    <div class="menu">
+
+        <h2>✨ Explora nuestras secciones ✨</h2>
+
+        <p>
+            Selecciona uno de los siguientes botones para conocer
+            más sobre cada tema.
+        </p>
+
+        <div class="botones">
+
+            <a class="boton" href="halloween2.html">
+                🎃 Información de Halloween
+            </a>
+
+            <a class="boton boton-morado" href="DiaDeMuertos.html">
+                🌼 Día de Muertos
+            </a>
+
+            <a class="boton" href="ofrendas.html">
+                🕯️ Las ofrendas
+            </a>
+
+            <a class="boton boton-morado" href="vestimenta.html">
+                👻 Vestimenta de Halloween
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <h3>Tradición, cultura y creatividad</h3>
+
+        <p>
+            Día de Muertos y Halloween
+        </p>
+
+    </footer>
+
+
+    
+<script>
+    var opcionElegida = "";
+
+    function seleccionarOpcion(opcion) {
+
+        opcionElegida = opcion;
+
+        document.getElementById("respuesta").value = opcion;
+
+        document.getElementById("halloween")
+            .classList.remove("seleccionada");
+
+        document.getElementById("diaMuertos")
+            .classList.remove("seleccionada");
+
+        if (opcion === "Halloween") {
+            document.getElementById("halloween")
+                .classList.add("seleccionada");
+        } else {
+            document.getElementById("diaMuertos")
+                .classList.add("seleccionada");
+        }
+
+        document.getElementById("mensaje").textContent =
+            "Elegiste: " + opcion +
+            ". ¡Presiona Enviar mi voto!";
+    }
+
+    document.getElementById("formularioVoto")
+        .addEventListener("submit", function(event) {
+
+            if (opcionElegida === "") {
+                event.preventDefault();
+
+                document.getElementById("mensaje").textContent =
+                    "Primero selecciona Halloween o Día de Muertos.";
+            }
+
+        });
+
+</body>
+</html>
+
+
+</body>
+</html>

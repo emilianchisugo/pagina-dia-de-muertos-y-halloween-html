@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween | Historia y tradiciones</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1b1026;
+            color: #FFFFFF;
+            line-height: 1.8;
+        }
+
+        .contenedor {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .color-acento {
+            color: #ff9d00;
+        }
+
+        header {
+            background-color: #351747;
+            text-align: center;
+            padding: 35px 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            line-height: 1.3;
+        }
+
+        header h2 {
+            color: #ffbd59;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        header p {
+            max-width: 750px;
+            margin: 20px auto;
+            text-align: justify;
+        }
+
+        .foto-perfil {
+            width: 220px;
+            max-width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #ff9d00;
+            margin-bottom: 15px;
+        }
+
+        section {
+            background-color: #30203e;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #68417d;
+        }
+
+        section h2 {
+            color: #ff9d00;
+            font-size: 28px;
+        }
+
+        section h3 {
+            color: #e3b2ff;
+            font-size: 22px;
+        }
+
+        .texto-centro {
+            text-align: center;
+        }
+
+        .texto-justificado {
+            text-align: justify;
+        }
+
+        .imagen {
+            background-color: #24172e;
+            color: #ffcf91;
+            text-align: center;
+            padding: 25px 15px;
+            margin: 20px 0;
+            border: 2px dashed #ff9d00;
+            border-radius: 12px;
+        }
+
+        .imagen img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        ul {
+            line-height: 2;
+        }
+
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Tarjetas nuevas */
+        .nuevas-secciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tarjeta-extra {
+            background-color: #30203e;
+            border: 2px solid #ff9d00;
+            border-radius: 15px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-extra h2 {
+            margin-top: 0;
+        }
+
+        .tarjeta-extra p {
+            line-height: 1.7;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background-color: #ff9d00;
+            color: #21132b;
+            padding: 7px 11px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .foto-tarjeta {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        /* Evento */
+        .evento-detalles {
+            background-color: #24172e;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.9;
+            margin: 10px 0;
+        }
+
+        .iconos-evento {
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        /* Encuesta */
+        .encuesta {
+            grid-column: 1 / -1;
+        }
+
+        .opciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        .opcion {
+            background-color: #24172e;
+            border: 2px solid #68417d;
+            border-radius: 12px;
+            padding: 15px;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .opcion img {
+            width: 100%;
+            height: 135px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .opcion:hover,
+        .opcion.seleccionada {
+            border-color: #ff9d00;
+            background-color: #42274f;
+        }
+
+        .boton-votar {
+            background-color: #ff9d00;
+            color: #21132b;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .boton-votar:hover {
+            background-color: #e3b2ff;
+        }
+
+        .mensaje-voto {
+            color: #ffcf91;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        /* Navegación */
+        .boton-regreso {
+            text-align: center;
+            background-color: #351747;
+            padding: 30px;
+            border: 2px solid #ff9d00;
+            border-radius: 15px;
+            margin: 30px 0 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background-color: #ff9d00;
+            color: #21132b;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #e3b2ff;
+            color: #24132f;
+        }
+
+        footer {
+            background-color: #100a17;
+            color: #e3b2ff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .contenedor {
+                padding: 15px;
+            }
+
+            header {
+                padding: 25px 18px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <header>
+            <img src="calabaza-1.jpg"
+                 alt="Calabaza decorada de Halloween"
+                 class="foto-perfil">
+
+            <h1 class="color-acento">🎃 La magia de Halloween 🎃</h1>
+
+            <h2>Historia, origen y tradiciones</h2>
+
+            <p>
+                Halloween mezcla antiguas creencias relacionadas con los difuntos y el mundo sobrenatural
+                con costumbres modernas, como el famoso truco o trato. Actualmente, es una celebración
+                conocida por sus disfraces, calabazas, decoraciones y personajes de terror.
+            </p>
+        </header>
+
+        <section>
+            <h2>👻 ¿Qué es Halloween?</h2>
+
+            <p class="texto-justificado">
+                Halloween se celebra cada año el 31 de octubre. Durante esta fecha, muchas personas se
+                disfrazan de brujas, vampiros, fantasmas, esqueletos y otros personajes. También se decoran
+                las casas con calabazas, telarañas y figuras aterradoras.
+            </p>
+
+            <p class="texto-justificado">
+                Una de las actividades más populares es el "truco o trato", en la que los niños recorren
+                las casas disfrazados para pedir dulces. Además, se realizan fiestas, concursos de disfraces
+                y actividades relacionadas con el terror.
+            </p>
+
+            <div class="imagen">
+                <h3>🎃 El ambiente de Halloween</h3>
+                <img src="images (1).jpg" alt="Decoración de Halloween">
+            </div>
+        </section>
+
+        <section>
+            <h2>📜 Historia y origen de Halloween</h2>
+
+            <p class="texto-justificado">
+                La palabra Halloween procede de la expresión inglesa "All Hallows' Eve", que significa
+                víspera del Día de Todos los Santos. Su historia está relacionada con tradiciones cristianas
+                y antiguas costumbres europeas.
+            </p>
+
+            <p class="texto-justificado">
+                Entre sus antecedentes se encuentra Samhain, una festividad celta asociada con el final de
+                la temporada de cosechas y el comienzo de la época más oscura del año. Algunas creencias
+                tradicionales relacionaban esta fecha con el mundo de los espíritus.
+            </p>
+
+            <p class="texto-justificado">
+                Con el paso del tiempo, las costumbres se transformaron y se mezclaron con otras tradiciones.
+                La celebración adquirió gran popularidad en Estados Unidos, donde se desarrollaron muchas
+                de las prácticas actuales, como los disfraces, las calabazas decoradas y el truco o trato.
+            </p>
+        </section>
+
+        <section>
+            <h2>🕯️ Halloween y la víspera de Todos los Santos</h2>
+
+            <p class="texto-justificado">
+                En la Inglaterra medieval, la palabra "hallow" se relacionaba con lo sagrado y con los santos.
+                La festividad de Todos los Santos era conocida en inglés como "All Hallows".
+            </p>
+
+            <p class="texto-justificado">
+                La noche anterior se conoció como "All Hallows' Eve", nombre del que proviene la palabra
+                Halloween. A lo largo de los siglos, las celebraciones religiosas y las costumbres populares
+                siguieron caminos diferentes según la región.
+            </p>
+
+            <p class="texto-justificado">
+                Con el tiempo, Halloween se convirtió en una celebración cultural que incluye disfraces,
+                dulces, decoraciones y actividades para personas de distintas edades.
+            </p>
+        </section>
+
+        <section>
+            <h2>🦇 Elementos importantes de Halloween</h2>
+
+            <p>Estos son algunos de los elementos más representativos de esta celebración:</p>
+
+            <ul>
+                <li><b>Disfraces:</b> ropa inspirada en personajes de terror y fantasía.</li>
+                <li><b>Calabazas decoradas:</b> se tallan rostros y figuras, y a menudo se colocan luces en su interior.</li>
+                <li><b>Decoraciones:</b> telarañas artificiales, murciélagos, esqueletos y fantasmas.</li>
+                <li><b>Truco o trato:</b> actividad en la que los niños piden dulces disfrazados.</li>
+                <li><b>Fiestas:</b> reuniones, concursos de disfraces y actividades temáticas.</li>
+            </ul>
+
+            <div class="imagen">
+                <h3>🕸️ Símbolos de Halloween</h3>
+                <img src="aimepsaw.jpg" alt="Símbolos y decoración de Halloween">
+            </div>
+        </section>
+
+        <section>
+            <h2>🧛 Tradiciones, vestimenta y cultura</h2>
+
+            <p class="texto-justificado">
+                Los disfraces son una de las costumbres más conocidas de Halloween. Algunas personas
+                eligen personajes clásicos, como brujas, vampiros y zombis, mientras que otras prefieren
+                superhéroes o personajes de películas.
+            </p>
+
+            <p class="texto-justificado">
+                El maquillaje, las máscaras, los sombreros y los accesorios permiten completar cada
+                vestimenta. Los colores más utilizados en las decoraciones suelen ser el negro, naranja,
+                morado y verde.
+            </p>
+
+            <h3>🎬 Video sobre Halloween</h3>
+
+            <p>Aquí puedes ver un video relacionado con esta celebración.</p>
+
+            <div class="video-box">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/NTfMGNZmhaM"
+                    title="Video sobre Halloween"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Nota cultural, evento y encuesta -->
+        <div class="nuevas-secciones">
+
+            <section class="tarjeta-extra">
+                <span class="etiqueta">NOTA CULTURAL</span>
+
+                <h2>📰 Halloween: una tradición que se transforma</h2>
+
+                <img class="foto-tarjeta"
+                     src="calabaza-1.jpg"
+                     alt="Calabaza decorada de Halloween">
+
+                <p>
+                    Halloween se ha convertido en una celebración reconocida en distintos lugares del mundo.
+                    Las personas decoran sus casas, crean disfraces y organizan actividades para compartir
+                    con amigos, familiares y vecinos.
+                </p>
+
+                <p>
+                    Aunque algunas costumbres tienen raíces antiguas, muchas de las formas actuales de
+                    celebrarlo, como las fiestas de disfraces y el truco o trato, se han popularizado con
+                    el paso del tiempo y a través de películas, series y otras expresiones de la cultura popular.
+                </p>
+            </section>
+
+            <section class="tarjeta-extra">
+                <span class="etiqueta">PROPUESTA DE EVENTO ESCOLAR</span>
+
+                <h2>🎃 Noche de Halloween</h2>
+
+                <div class="iconos-evento">🦇 🎃 👻</div>
+
+                <p>
+                    Una propuesta para organizar una actividad escolar con juegos, disfraces y decoración
+                    inspirada en Halloween.
+                </p>
+
+                <div class="evento-detalles">
+                    <strong>📅 Fecha:</strong> 31 de octubre<br>
+                    <strong>🕓 Horario:</strong> 4:00 p. m. a 8:00 p. m.<br>
+                    <strong>📍 Lugar:</strong> Patio escolar<br>
+                    <strong>🎭 Actividades:</strong> concurso de disfraces, decoración de calabazas,
+                    búsqueda de dulces y concurso de decoración temática.
+                </div>
+
+                <p>
+                    <em>Nota: este evento es una propuesta para el proyecto escolar, no un evento confirmado.</em>
+                </p>
+            </section>
+
+            <section class="tarjeta-extra encuesta">
+                <span class="etiqueta">PARTICIPA</span>
+
+                <h2>🗳️ ¿Qué es lo que más te gusta de Halloween?</h2>
+
+                <p>Elige una opción y después presiona “Enviar mi voto”.</p>
+
+                <div class="opciones">
+
+                    <button class="opcion" type="button"
+                            data-opcion="Los disfraces" aria-pressed="false">
+                        <img src="aimepsaw.jpg" alt="Decoración y ambiente de Halloween">
+                        🧛 Los disfraces
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="Las calabazas" aria-pressed="false">
+                        <img src="calabaza-1.jpg" alt="Calabaza de Halloween">
+                        🎃 Las calabazas
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="Los dulces" aria-pressed="false">
+                        <span style="display:block;font-size:65px;padding:25px 0;">🍬</span>
+                        🍬 Los dulces
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="Las películas de terror" aria-pressed="false">
+                        <span style="display:block;font-size:65px;padding:25px 0;">👻</span>
+                        👻 Las películas de terror
+                    </button>
+
+                </div>
+
+                <button class="boton-votar" type="button" id="enviarVoto">
+                    ¡Enviar mi voto!
+                </button>
+
+                <p class="mensaje-voto" id="mensajeVoto" aria-live="polite"></p>
+
+                <p>
+                    <small>
+                        Para guardar las respuestas y consultar los resultados en Excel, conecta esta encuesta
+                        con Microsoft Forms. Esta versión permite seleccionar una opción, pero todavía no registra votos.
+                    </small>
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Botones al final -->
+        <div class="boton-regreso">
+            <h2 class="color-acento">🎃 ¡Regresa a la página principal! 🎃</h2>
+
+            <p>Explora también las otras secciones de nuestro sitio.</p>
+
+            <a href="dia de muertos y halloween.html" class="btn">
+                ⬅ Página principal
+            </a>
+
+            <a href="DiaDeMuertos.html" class="btn">
+                💀 Explorar Día de Muertos
+            </a>
+        </div>
+
+        <footer>
+            <p>Halloween | Historia, cultura y diversión</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const opciones = document.querySelectorAll(".opcion");
+        const mensaje = document.getElementById("mensajeVoto");
+        const botonEnviar = document.getElementById("enviarVoto");
+
+        let votoSeleccionado = "";
+
+        opciones.forEach(function(opcion) {
+            opcion.addEventListener("click", function() {
+
+                opciones.forEach(function(elemento) {
+                    elemento.classList.remove("seleccionada");
+                    elemento.setAttribute("aria-pressed", "false");
+                });
+
+                opcion.classList.add("seleccionada");
+                opcion.setAttribute("aria-pressed", "true");
+
+                votoSeleccionado = opcion.dataset.opcion;
+
+                mensaje.textContent = "Seleccionaste: " + votoSeleccionado;
+            });
+        });
+
+        botonEnviar.addEventListener("click", function() {
+            if (votoSeleccionado === "") {
+                mensaje.textContent = "Primero elige una opción para votar.";
+            } else {
+                mensaje.textContent =
+                    "¡Gracias por participar! Para registrar tu voto en Excel, conecta esta encuesta con Microsoft Forms.";
+            }
+        });
+    </script>
+
+</body>
+</html>

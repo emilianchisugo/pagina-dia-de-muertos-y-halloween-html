@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día de Muertos</title>
+
+    <style>
+        body {
+            background-color: #693668;
+            font-family: Arial, sans-serif;
+            color: #f5f0ff;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2b163d;
+            color: #ff9d00;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: white;
+            font-size: 18px;
+        }
+
+        h2 {
+            color: #ff8c00;
+            font-size: 30px;
+        }
+
+        h3 {
+            color: #d9a7ff;
+            font-size: 22px;
+        }
+
+        .contenido {
+            padding: 30px;
+        }
+
+        .introduccion {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .seccion {
+            background-color: #282036;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+        }
+
+        .texto {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .seccion img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        ul {
+            line-height: 2;
+        }
+
+        /* Nuevas tarjetas */
+        .nuevas-secciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tarjeta-extra {
+            background-color: #282036;
+            border: 2px solid #ff8c00;
+            border-radius: 15px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-extra h2 {
+            margin-top: 0;
+        }
+
+        .tarjeta-extra p {
+            line-height: 1.7;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: #1c1428;
+            padding: 7px 11px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .foto-tarjeta {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        /* Evento */
+        .evento-detalles {
+            background-color: #382742;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.9;
+            margin: 10px 0;
+        }
+
+        .iconos-evento {
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        /* Encuesta */
+        .encuesta {
+            grid-column: 1 / -1;
+        }
+
+        .opciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        .opcion {
+            background-color: #382742;
+            border: 2px solid #6b5479;
+            border-radius: 12px;
+            padding: 15px;
+            color: #f5f0ff;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .opcion img {
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .opcion:hover,
+        .opcion.seleccionada {
+            border-color: #ff9d00;
+            background-color: #4a2b50;
+        }
+
+        .boton-votar {
+            background-color: #ff8c00;
+            color: #1c1428;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .mensaje-voto {
+            color: #ffd28a;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        /* Botones de navegación */
+        .boton-regreso {
+            background-color: #392449;
+            text-align: center;
+            padding: 30px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            border: 2px solid #ff8c00;
+            border-radius: 15px;
+        }
+
+        .boton-regreso h2 {
+            font-size: 24px;
+        }
+
+        a.boton {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: #1c1428;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 6px;
+        }
+
+        a.boton:hover,
+        .boton-votar:hover {
+            background-color: #ffb13b;
+        }
+
+        footer {
+            background-color: #0d0a13;
+            color: #d9a7ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            .contenido {
+                padding: 15px;
+            }
+
+            .seccion {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>💀 Día de Muertos 🌼</h1>
+        <p>Tradición, cultura y recuerdos de México</p>
+    </header>
+
+    <div class="contenido">
+
+        <div class="introduccion">
+            <h2>¡Una tradición llena de recuerdos!</h2>
+            <p class="texto">
+                El Día de Muertos es una celebración tradicional mexicana que se realiza para recordar y honrar
+                a los seres queridos que han fallecido. Durante estas fechas, las familias preparan ofrendas,
+                colocan fotografías, decoran con flores y comparten alimentos para mantener viva la memoria
+                de sus familiares y amigos.
+            </p>
+        </div>
+
+        <div class="seccion">
+            <h2>🌼 ¿Qué es el Día de Muertos?</h2>
+
+            <p class="texto">
+                El Día de Muertos es una tradición mexicana que celebra la memoria de las personas fallecidas.
+                Se conmemora principalmente los días 1 y 2 de noviembre. Es una ocasión en la que las familias
+                se reúnen para recordar a sus seres queridos mediante altares, alimentos, flores y fotografías.
+            </p>
+
+            <p class="texto">
+                Esta celebración representa el amor, el respeto y la importancia de conservar los recuerdos
+                de quienes formaron parte de nuestras vidas.
+            </p>
+
+            <img src="decoraciòn muertos.JPG" alt="Decoración del Día de Muertos">
+        </div>
+
+        <div class="seccion">
+            <h2>📜 Origen e historia</h2>
+
+            <p class="texto">
+                El origen del Día de Muertos se relaciona con las antiguas culturas indígenas de México, que
+                realizaban ceremonias para honrar a sus difuntos. Con la llegada de los españoles, algunas de
+                estas prácticas se mezclaron con las tradiciones católicas, dando lugar a diferentes formas de
+                celebrar y recordar a los fallecidos.
+            </p>
+
+            <p class="texto">
+                Con el paso del tiempo, esta celebración se convirtió en una de las tradiciones culturales más
+                representativas de México. En 2008, la UNESCO reconoció las fiestas indígenas dedicadas a los
+                muertos como Patrimonio Cultural Inmaterial de la Humanidad.
+            </p>
+        </div>
+
+        <div class="seccion">
+            <h2>👗 Vestimenta tradicional</h2>
+
+            <p class="texto">
+                Durante el Día de Muertos, muchas personas utilizan vestimentas tradicionales o disfraces
+                inspirados en personajes representativos de esta celebración. Uno de los más conocidos es
+                la Catrina, acompañada en ocasiones por el Catrín.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>La Catrina:</strong> se caracteriza por su maquillaje de calavera,
+                    vestidos elegantes y sombreros decorados con flores.
+                </li>
+
+                <li>
+                    <strong>El Catrín:</strong> suele vestir traje formal, sombrero y maquillaje de calavera.
+                </li>
+
+                <li>
+                    <strong>Trajes regionales:</strong> incluyen prendas tradicionales, bordados y accesorios
+                    propios de diferentes comunidades mexicanas.
+                </li>
+
+                <li>
+                    <strong>Maquillaje:</strong> utiliza diseños de calaveras con flores y colores como naranja,
+                    blanco, negro, rojo y morado.
+                </li>
+            </ul>
+
+            <div class="imagen">
+                <p>Agrega aquí una imagen de vestimenta tradicional si la tienes.</p>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2>🕯️ Las ofrendas</h2>
+
+            <p class="texto">
+                Las ofrendas son altares que las familias preparan para recordar a sus seres queridos. En ellas se
+                colocan fotografías, veladoras, flores, alimentos y objetos significativos para las personas a
+                quienes se dedica el altar.
+            </p>
+
+            <h3>Elementos principales de una ofrenda</h3>
+
+            <ul>
+                <li><strong>Fotografías:</strong> recuerdan a los familiares y amigos fallecidos.</li>
+                <li><strong>Veladoras:</strong> simbolizan la luz que guía a las almas según la tradición.</li>
+                <li><strong>Flor de cempasúchil:</strong> destaca por su color naranja y su aroma característico.</li>
+                <li><strong>Pan de muerto:</strong> es uno de los alimentos tradicionales de esta celebración.</li>
+                <li><strong>Agua:</strong> representa la hidratación y la hospitalidad hacia los difuntos.</li>
+                <li><strong>Sal:</strong> se relaciona tradicionalmente con la purificación.</li>
+                <li><strong>Papel picado:</strong> decora el altar con colores y diseños tradicionales.</li>
+                <li><strong>Comida favorita:</strong> permite recordar los gustos de cada persona fallecida.</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2>💀 Símbolos representativos</h2>
+
+            <p class="texto">
+                El Día de Muertos cuenta con símbolos que expresan la identidad cultural de México y ayudan a
+                conservar las costumbres de esta celebración.
+            </p>
+
+            <ul>
+                <li><strong>Calaveritas:</strong> pueden elaborarse de azúcar o chocolate y representan la relación cultural con la muerte.</li>
+                <li><strong>Cempasúchil:</strong> es una flor característica de las ofrendas.</li>
+                <li><strong>Pan de muerto:</strong> es un alimento tradicional que se comparte en familia.</li>
+                <li><strong>Copal e incienso:</strong> forman parte de las prácticas ceremoniales de algunas comunidades.</li>
+                <li><strong>Calaveras literarias:</strong> son composiciones humorísticas que juegan con la idea de la muerte.</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2>🎉 ¿Cómo se celebra en México?</h2>
+
+            <p class="texto">
+                Las celebraciones varían de acuerdo con cada región. Algunas familias colocan altares en sus
+                hogares, visitan los cementerios, decoran las tumbas con flores y preparan los platillos favoritos
+                de sus seres queridos.
+            </p>
+
+            <p class="texto">
+                También se organizan desfiles, exhibiciones de ofrendas, actividades culturales y reuniones
+                familiares. En lugares como Pátzcuaro y Janitzio, en Michoacán, se realizan celebraciones
+                tradicionales que atraen a visitantes de diferentes lugares.
+            </p>
+        </div>
+
+        <div class="seccion">
+            <h2>❤️ Importancia del Día de Muertos</h2>
+
+            <p class="texto">
+                Esta tradición es importante porque permite transmitir las costumbres mexicanas de generación en
+                generación. Además, fortalece los lazos familiares, promueve el respeto por los antepasados y nos
+                recuerda que las personas que amamos permanecen presentes en nuestros recuerdos.
+            </p>
+        </div>
+
+        <!-- Nota cultural, evento y encuesta -->
+        <div class="nuevas-secciones">
+
+            <section class="tarjeta-extra">
+                <span class="etiqueta">NOTA CULTURAL</span>
+
+                <h2>📰 El Día de Muertos mantiene viva la memoria</h2>
+
+                <img class="foto-tarjeta"
+                     src="decoraciòn muertos.JPG"
+                     alt="Decoración tradicional del Día de Muertos">
+
+                <p>
+                    Cada año, familias de distintas partes de México preparan ofrendas, visitan los panteones
+                    y decoran sus hogares con flores de cempasúchil. Estas costumbres permiten recordar a los
+                    seres queridos y compartir las tradiciones con las nuevas generaciones.
+                </p>
+
+                <p>
+                    La celebración también se expresa mediante la música, la comida, las artesanías y las
+                    actividades culturales que se organizan en distintas comunidades.
+                </p>
+            </section>
+
+            <section class="tarjeta-extra">
+                <span class="etiqueta">PROPUESTA DE EVENTO ESCOLAR</span>
+
+                <h2>🎉 Festival de Día de Muertos</h2>
+
+                <div class="iconos-evento">🌼 💀 🕯️</div>
+
+                <p>
+                    Una propuesta para celebrar esta tradición en la escuela con actividades creativas y
+                    culturales para estudiantes.
+                </p>
+
+                <div class="evento-detalles">
+                    <strong>📅 Fecha:</strong> 1 de noviembre<br>
+                    <strong>🕓 Horario:</strong> 4:00 p. m. a 8:00 p. m.<br>
+                    <strong>📍 Lugar:</strong> Patio escolar<br>
+                    <strong>🎨 Actividades:</strong> exposición de ofrendas, concurso de calaveritas literarias,
+                    maquillaje de Catrina y muestra de pan de muerto.
+                </div>
+
+                <p>
+                    <em>Nota: este evento es una propuesta para el proyecto escolar, no un evento confirmado.</em>
+                </p>
+            </section>
+
+            <section class="tarjeta-extra encuesta">
+                <span class="etiqueta">PARTICIPA</span>
+
+                <h2>🗳️ ¿Qué elemento del Día de Muertos te gusta más?</h2>
+
+                <p>Elige una opción y después presiona “Enviar mi voto”.</p>
+
+                <div class="opciones">
+                    <button class="opcion" type="button"
+                            data-opcion="Las ofrendas" aria-pressed="false">
+                        <img src="decoraciòn muertos.JPG" alt="Ofrenda de Día de Muertos">
+                        🕯️ Las ofrendas
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="La flor de cempasúchil" aria-pressed="false">
+                        <span style="display:block;font-size:65px;padding:25px 0;">🌼</span>
+                        La flor de cempasúchil
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="El pan de muerto" aria-pressed="false">
+                        <span style="display:block;font-size:65px;padding:25px 0;">🥖</span>
+                        El pan de muerto
+                    </button>
+
+                    <button class="opcion" type="button"
+                            data-opcion="La Catrina" aria-pressed="false">
+                        <span style="display:block;font-size:65px;padding:25px 0;">💀</span>
+                        La Catrina
+                    </button>
+                </div>
+
+                <button class="boton-votar" type="button" id="enviarVoto">
+                    ¡Enviar mi voto!
+                </button>
+
+                <p class="mensaje-voto" id="mensajeVoto" aria-live="polite"></p>
+
+                <p>
+                    <small>
+                        Para guardar las respuestas y ver los resultados en Excel, conecta esta encuesta
+                        con Microsoft Forms. Esta versión solo muestra la opción seleccionada; todavía no registra votos.
+                    </small>
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Botones al final de la página -->
+        <div class="boton-regreso">
+            <h2>¿Quieres volver?</h2>
+
+            <p>Regresa a la página principal para seguir explorando.</p>
+
+            <a class="boton" href="dia de muertos y halloween.html">
+                ⬅ Regresar a la página principal
+            </a>
+
+            <a class="boton" href="ofrendas.html">
+                🕯️ Conoce las ofrendas
+            </a>
+
+            <a class="boton" href="vestimenta.html">
+                👗 Ver vestimenta tradicional
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Día de Muertos | Tradición, cultura y memoria mexicana</p>
+    </footer>
+
+    <script>
+        const opciones = document.querySelectorAll(".opcion");
+        const mensaje = document.getElementById("mensajeVoto");
+        const botonEnviar = document.getElementById("enviarVoto");
+
+        let votoSeleccionado = "";
+
+        opciones.forEach(function(opcion) {
+            opcion.addEventListener("click", function() {
+
+                opciones.forEach(function(elemento) {
+                    elemento.classList.remove("seleccionada");
+                    elemento.setAttribute("aria-pressed", "false");
+                });
+
+                opcion.classList.add("seleccionada");
+                opcion.setAttribute("aria-pressed", "true");
+
+                votoSeleccionado = opcion.dataset.opcion;
+
+                mensaje.textContent = "Seleccionaste: " + votoSeleccionado;
+            });
+        });
+
+        botonEnviar.addEventListener("click", function() {
+            if (votoSeleccionado === "") {
+                mensaje.textContent = "Primero elige una opción para votar.";
+            } else {
+                mensaje.textContent =
+                    "¡Gracias por participar! Para registrar tu voto en Excel, conecta esta encuesta con Microsoft Forms.";
+            }
+        });
+    </script>
+
+</body>
+</html>
